@@ -64,6 +64,8 @@ set tabpagemax=30
 
 "____________________Fcts_____________________"
 
+"TOGGLE COMMENT____________________________ {{{
+
 :function ToggleComment()
 let l:com_s = "#"
 if (&ft=='c' || &ft=='cpp')
@@ -82,6 +84,8 @@ else
 	:s/^/\=l:com_s/
 endif
 endfunction
+
+"TOGGLE COMMENT____________________________ }}}
 
 "STDHEADER_________________________________ {{{
 
