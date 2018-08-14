@@ -1,3 +1,15 @@
+" **************************************************************************** "
+"                                                                              "
+"                                                         :::      ::::::::    "
+"    vimrc                                              :+:      :+:    :+:    "
+"                                                     +:+ +:+         +:+      "
+"    By: kehuang <kehuang@student.42.fr>            +#+  +:+       +#+         "
+"                                                 +#+#+#+#+#+   +#+            "
+"    Created: 2018/08/14 22:52:28 by kehuang           #+#    #+#              "
+"    Updated: 2018/08/14 23:02:33 by kehuang          ###   ########.fr        "
+"                                                                              "
+" **************************************************************************** "
+
 "Activate indentation
 filetype off
 filetype plugin indent on
@@ -43,23 +55,23 @@ au BufWrite /private/etc/pw.* set nowritebackup
 "____________________Style____________________"
 syntax on
 colorscheme monokai
-set number
-set relativenumber
-set ruler
-set colorcolumn=81
-set foldmethod=marker
 if !exists("g:colors_name")
 	highlight	ColorColumn		ctermbg=235
 	highlight	Normal			ctermbg=234
 	highlight	Search			ctermbg=8
 	set background=dark
 endif
+set number
+set relativenumber
+set ruler
+set colorcolumn=81
+set foldmethod=marker
 "____________________Tabs_____________________"
-set tabpagemax=30
-:nnoremap , :tabp<CR>
-:nnoremap . :tabn<CR>
-:nnoremap ++ :Texplore<CR>
-:nnoremap += :tabclose<CR>
+set tabpagemax=100
+:nnoremap <silent> , :tabp<CR>
+:nnoremap <silent> . :tabn<CR>
+:nnoremap <silent> ++ :Texplore<CR>
+:nnoremap <silent> += :tabclose<CR>
 "___________________Scripts___________________"
 :if (&ft=='python')
 :ts=4
@@ -241,7 +253,11 @@ autocmd BufWritePre * call s:update ()
 
 "____________________Utils____________________"
 set mouse=a
-:nnoremap <SPACE> :noh<CR>
+let mapleader=""
+:nnoremap <silent> <SPACE> :noh<CR>
 
-"___________________ TEST
-:vmap <silent> <SPACE> :call ToggleComment()<CR>
+"<leader> mapping
+:nnoremap <leader><c-w> :w<CR>
+:nnoremap <leader><c-x> :q<CR>
+"Very basic comment toggle
+:vnoremap <silent> <SPACE> :call ToggleComment()<CR>
