@@ -42,13 +42,18 @@ au BufWrite /private/etc/pw.* set nowritebackup
 
 "____________________Style____________________"
 syntax on
+colorscheme monokai
 set number
 set relativenumber
 set ruler
 set colorcolumn=81
 set foldmethod=marker
-highlight	ColorColumn		ctermbg=8
-highlight	Search			ctermbg=8
+if !exists("g:colors_name")
+	highlight	ColorColumn		ctermbg=235
+	highlight	Normal			ctermbg=234
+	highlight	Search			ctermbg=8
+	set background=dark
+endif
 "____________________Tabs_____________________"
 set tabpagemax=30
 :nnoremap , :tabp<CR>
