@@ -6,7 +6,7 @@
 "    By: kehuang <kehuang@student.42.fr>            +#+  +:+       +#+         "
 "                                                 +#+#+#+#+#+   +#+            "
 "    Created: 2018/08/14 22:52:28 by kehuang           #+#    #+#              "
-"    Updated: 2018/08/14 23:02:33 by kehuang          ###   ########.fr        "
+"    Updated: 2018/08/16 16:06:07 by kehuang          ###   ########.fr        "
 "                                                                              "
 " **************************************************************************** "
 
@@ -53,6 +53,8 @@ au BufWrite /private/tmp/crontab.* set nowritebackup
 au BufWrite /private/etc/pw.* set nowritebackup
 
 "____________________Style____________________"
+set list
+set listchars=tab:→\ ,trail:·,eol:¬,extends:…,precedes:…
 syntax on
 colorscheme monokai
 if !exists("g:colors_name")
