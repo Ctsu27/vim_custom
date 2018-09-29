@@ -1,15 +1,3 @@
-" **************************************************************************** "
-"                                                                              "
-"                                                         :::      ::::::::    "
-"    vimrc                                              :+:      :+:    :+:    "
-"                                                     +:+ +:+         +:+      "
-"    By: kehuang <kehuang@student.42.fr>            +#+  +:+       +#+         "
-"                                                 +#+#+#+#+#+   +#+            "
-"    Created: 2018/08/14 22:52:28 by kehuang           #+#    #+#              "
-"    Updated: 2018/08/16 16:06:07 by kehuang          ###   ########.fr        "
-"                                                                              "
-" **************************************************************************** "
-
 "Activate indentation
 filetype off
 filetype plugin indent on
@@ -53,14 +41,14 @@ au BufWrite /private/tmp/crontab.* set nowritebackup
 au BufWrite /private/etc/pw.* set nowritebackup
 
 "____________________Style____________________"
-set list
+set nolist
 set listchars=tab:→\ ,trail:·,eol:¬,extends:…,precedes:…
 syntax on
 colorscheme monokai
 if !exists("g:colors_name")
-	highlight	ColorColumn		ctermbg=235
-	highlight	Normal			ctermbg=234
-	highlight	Search			ctermbg=8
+	highlight ColorColumn	ctermbg=235
+	highlight Normal		ctermbg=234
+	highlight Search		ctermbg=8
 	set background=dark
 endif
 set number
@@ -70,7 +58,7 @@ set colorcolumn=81
 set foldmethod=marker
 "____________________Tabs_____________________"
 set tabpagemax=100
-:nnoremap <silent> , :tabp<CR>
+:nnoremap <silent> > :tabp<CR>
 :nnoremap <silent> . :tabn<CR>
 :nnoremap <silent> ++ :Texplore<CR>
 :nnoremap <silent> += :tabclose<CR>
@@ -253,13 +241,34 @@ autocmd BufWritePre * call s:update ()
 
 "_________________________________STDHEADER }}}
 
-"____________________Utils____________________"
+"BALISE XML________________________________ {{{
+:function Ret(str)
+return a:str
+endfunction
+
+:function Bl(str)
+let l:appd="<". a:str . ">	</" . a:str . ">"
+execute setline(line('.'), getline(line('.')) . l:appd)
+execute '%s//'.''.'/g'
+execute 'normal kl'
+endfunction
+"BALISE XML________________________________ }}}
+
+"_____________UTILS
 set mouse=a
+set ignorecase
+set noerrorbells
+set novisualbell
+
+"_____________MAPPING
 let mapleader=""
+
 :nnoremap <silent> <SPACE> :noh<CR>
 
-"<leader> mapping
+:nnoremap <c-p> <Nop>
 :nnoremap <leader><c-w> :w<CR>
 :nnoremap <leader><c-x> :q<CR>
-"Very basic comment toggle
+
+:nnoremap <silent> <leader><c-p> :set list!<CR>
+
 :vnoremap <silent> <SPACE> :call ToggleComment()<CR>
