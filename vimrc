@@ -236,7 +236,7 @@ function! s:stdheader()
 endfunction
 
 " Bind command and shortcut
-command! Stdheader call s:stdheader ()
+command! Ftheader call s:stdheader ()
 autocmd BufWritePre * call s:update ()
 
 "_________________________________STDHEADER }}}
