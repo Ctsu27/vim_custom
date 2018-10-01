@@ -229,14 +229,14 @@ function! s:update()
 	return 1
 endfunction
 
-function! s:stdheader()
+function! s:ftheader()
 	if s:update()
 		call s:insert()
 	endif
 endfunction
 
 " Bind command and shortcut
-command! Ftheader call s:stdheader ()
+command! Ftheader call s:ftheader ()
 autocmd BufWritePre * call s:update ()
 
 "_________________________________STDHEADER }}}
