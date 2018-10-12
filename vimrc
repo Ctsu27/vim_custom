@@ -69,6 +69,9 @@ set tabpagemax=100
 :let python_highlight_all = 1
 :endif
 
+autocmd Filetype html setlocal ts=2 sw=2 expandtab list
+autocmd Filetype php setlocal ts=2 sw=2 expandtab list
+autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 noexpandtab list
 "____________________Fcts_____________________"
 
 "TOGGLE COMMENT____________________________ {{{
@@ -261,11 +264,13 @@ set noerrorbells
 set novisualbell
 
 "_____________MAPPING
+:nnoremap q <Nop>
+:nnoremap <c-p> <Nop>
+
 let mapleader=""
 
 :nnoremap <silent> <SPACE> :noh<CR>
 
-:nnoremap <c-p> <Nop>
 :nnoremap <leader><c-w> :w<CR>
 :nnoremap <leader><c-x> :q<CR>
 
