@@ -69,8 +69,8 @@ set tabpagemax=100
 :let python_highlight_all = 1
 :endif
 
-autocmd Filetype html setlocal ts=2 sw=2 expandtab list
-autocmd Filetype php setlocal ts=2 sw=2 expandtab list
+autocmd Filetype html setlocal ts=2 sw=2 noexpandtab list
+autocmd Filetype php setlocal ts=2 sw=2 noexpandtab list
 autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 noexpandtab list
 "____________________Fcts_____________________"
 
