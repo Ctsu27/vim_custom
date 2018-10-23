@@ -71,7 +71,11 @@ set tabpagemax=100
 
 autocmd Filetype html setlocal ts=2 sw=2 noexpandtab list
 autocmd Filetype php setlocal ts=2 sw=2 noexpandtab list
-autocmd Filetype javascript setlocal ts=4 sw=4 sts=0 noexpandtab list
+autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 noexpandtab list
+
+autocmd FileType c setlocal comments=sr:/*,mb:**,ex:*/
+autocmd FileType css setlocal comments=sr:/*,mb:**,ex:*/
+autocmd FileType javascript setlocal comments=sr:/*,mb:**,ex:*/
 "____________________Fcts_____________________"
 
 "TOGGLE COMMENT____________________________ {{{
