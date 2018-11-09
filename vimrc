@@ -275,9 +275,24 @@ let mapleader=""
 
 :nnoremap <silent> <SPACE> :noh<CR>
 
-:nnoremap <leader><c-w> :w<CR>
-:nnoremap <leader><c-x> :q<CR>
+":nnoremap <leader><c-w> :w<CR>
+":nnoremap <leader><c-x> :q<CR>
 
 :nnoremap <silent> <leader><c-p> :set list!<CR>
 
 :vnoremap <silent> <SPACE> :call ToggleComment()<CR>
+
+"_____________PLUG
+execute pathogen#infect()
+"let g:syntastic_c_compiler_options = '-Wall -Wextra -Wfloat-equal -Wshadow -Wpointer-arith -Wcast-align -Wstrict-prototypes -Wwrite-strings -Waggregate-return -Wconversion -Wunreachable-code -Winit-self'
+"let g:syntastic_c_compiler_options = '-Weverything'
+let g:syntastic_c_compiler_options = '-Wall -Wextra -Werror -Wunreachable-code'
+let g:syntastic_c_include_dirs = [ '../include', 'include', '../lib/include', 'lib/include',  'includes', 'libft/includes/', '../libft/includes/']
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_enable_balloons = 1
+let g:syntastic_enable_highlighting = 1
+let g:syntastic_error_symbol = '⌘'
+let g:syntastic_warning_symbol = '⦿'
