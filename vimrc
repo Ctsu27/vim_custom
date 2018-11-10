@@ -287,7 +287,7 @@ execute pathogen#infect()
 "let g:syntastic_c_compiler_options = '-Wall -Wextra -Wfloat-equal -Wshadow -Wpointer-arith -Wcast-align -Wstrict-prototypes -Wwrite-strings -Waggregate-return -Wconversion -Wunreachable-code -Winit-self'
 "let g:syntastic_c_compiler_options = '-Weverything'
 let g:syntastic_c_compiler_options = '-Wall -Wextra -Werror -Wunreachable-code'
-let g:syntastic_c_include_dirs = [ '../include', 'include', '../lib/include', 'lib/include',  'includes', 'libft/includes/', '../libft/includes/']
+let g:syntastic_c_include_dirs = [ '../include', 'include', '../../includes', '../includes', 'includes', 'libft/includes/', '../libft/includes/', '../lib/include', 'lib/include']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
