@@ -47,6 +47,7 @@ syntax on
 "colorscheme monokai
 "colorscheme molokai
 colorscheme gruvbox
+"colorscheme onedark
 "colorscheme sublimemonokai
 "
 if !exists("g:colors_name")
@@ -67,6 +68,15 @@ set tabpagemax=100
 :nnoremap <silent> <Tab> :tabn<CR>
 :nnoremap <silent> ++ :Texplore<CR>
 :nnoremap <silent> += :tabclose<CR>
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+"let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 15
+"augroup ProjectDrawer
+"  autocmd!
+"  autocmd VimEnter * :Vexplore
+"augroup END
 "___________________Scripts___________________"
 :if (&ft=='python')
 :ts=4
@@ -81,6 +91,8 @@ autocmd Filetype javascript setlocal ts=2 sw=2 sts=0 noexpandtab list
 autocmd FileType c setlocal comments=sr:/*,mb:**,ex:*/
 autocmd FileType css setlocal comments=sr:/*,mb:**,ex:*/
 autocmd FileType javascript setlocal comments=sr:/*,mb:**,ex:*/
+set updatetime=100
+autocmd CursorHold * if (&filetype == 'netrw' && &number == 0) | set relativenumber | endif
 "____________________Fcts_____________________"
 
 "TOGGLE COMMENT____________________________ {{{
@@ -289,14 +301,14 @@ endfunction
 :nnoremap q <Nop>
 :nnoremap <c-p> <Nop>
 
-let mapleader=""
+let mapleader='\'
 
 :nnoremap <silent> <SPACE> :noh<CR>
 
 ":nnoremap <leader><c-w> :w<CR>
 ":nnoremap <leader><c-x> :q<CR>
 
-:nnoremap <silent> <leader><c-p> :set list!<CR>
+:nnoremap <silent> <leader><leader> :set list!<CR>
 
 :vnoremap <silent> <SPACE> :call ToggleComment()<CR>
 
