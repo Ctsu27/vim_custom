@@ -44,13 +44,18 @@ au BufWrite /private/etc/pw.* set nowritebackup
 set nolist
 set listchars=tab:→\ ,trail:·,eol:¬,extends:…,precedes:…
 syntax on
-colorscheme monokai
+"colorscheme monokai
+"colorscheme molokai
+colorscheme gruvbox
+"colorscheme sublimemonokai
+"
 if !exists("g:colors_name")
 	highlight ColorColumn	ctermbg=235
 	highlight Normal		ctermbg=234
 	highlight Search		ctermbg=8
 	set background=dark
 endif
+
 set number
 set relativenumber
 set ruler
@@ -58,8 +63,8 @@ set colorcolumn=81
 set foldmethod=marker
 "____________________Tabs_____________________"
 set tabpagemax=100
-:nnoremap <silent> > :tabp<CR>
-:nnoremap <silent> . :tabn<CR>
+:nnoremap <silent> <S-Tab> :tabp<CR>
+:nnoremap <silent> <Tab> :tabn<CR>
 :nnoremap <silent> ++ :Texplore<CR>
 :nnoremap <silent> += :tabclose<CR>
 "___________________Scripts___________________"
@@ -268,6 +273,19 @@ set noerrorbells
 set novisualbell
 
 "_____________MAPPING
+
+function! Tab_Or_Complete()
+  if col('.')>1 && strpart( getline('.'), col('.')-2, 3 ) =~ '^\w'
+    return "\<C-N>"
+  else
+    return "\<Tab>"
+  endif
+endfunction
+
+":set dictionary="/usr/dict/words"
+":inoremap <silent> <S-Tab> <C-n>
+":inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
+:inoremap <S-Tab> <C-R>=Tab_Or_Complete()<CR>
 :nnoremap q <Nop>
 :nnoremap <c-p> <Nop>
 
@@ -287,7 +305,7 @@ execute pathogen#infect()
 "let g:syntastic_c_compiler_options = '-Wall -Wextra -Wfloat-equal -Wshadow -Wpointer-arith -Wcast-align -Wstrict-prototypes -Wwrite-strings -Waggregate-return -Wconversion -Wunreachable-code -Winit-self'
 "let g:syntastic_c_compiler_options = '-Weverything'
 let g:syntastic_c_compiler_options = '-Wall -Wextra -Werror -Wunreachable-code'
-let g:syntastic_c_include_dirs = [ '../include', 'include', '../../includes', '../includes', 'includes', 'libft/includes/', '../libft/includes/', '../lib/include', 'lib/include']
+let g:syntastic_c_include_dirs = [ '../include', 'include', '../../includes', '../includes', 'includes', 'libft/includes/', '../libft/includes/', '/Users/kehuang/.brew/include/SDL2', '../lib/include', 'lib/include']
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 1
