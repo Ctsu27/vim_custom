@@ -40,6 +40,8 @@ set hlsearch
 au BufWrite /private/tmp/crontab.* set nowritebackup
 au BufWrite /private/etc/pw.* set nowritebackup
 
+let mapleader='\'
+
 "____________________Style____________________"
 set nolist
 set listchars=tab:→\ ,trail:·,eol:¬,extends:…,precedes:…
@@ -66,8 +68,8 @@ set foldmethod=marker
 set tabpagemax=100
 :nnoremap <silent> <S-Tab> :tabp<CR>
 :nnoremap <silent> <Tab> :tabn<CR>
-:nnoremap <silent> ++ :Texplore<CR>
-:nnoremap <silent> += :tabclose<CR>
+:nnoremap <silent> <leader><Tab> :Texplore<CR>
+:nnoremap <silent> <leader><S-Tab> :tabclose<CR>
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 "let g:netrw_browse_split = 4
@@ -294,23 +296,15 @@ function! Tab_Or_Complete()
   endif
 endfunction
 
-":set dictionary="/usr/dict/words"
-":inoremap <silent> <S-Tab> <C-n>
 ":inoremap <Tab> <C-R>=Tab_Or_Complete()<CR>
 :inoremap <S-Tab> <C-R>=Tab_Or_Complete()<CR>
 :nnoremap q <Nop>
-:nnoremap <c-p> <Nop>
-
-let mapleader='\'
+:nnoremap Q <Nop>
 
 :nnoremap <silent> <SPACE> :noh<CR>
-
-":nnoremap <leader><c-w> :w<CR>
-":nnoremap <leader><c-x> :q<CR>
+:vnoremap <silent> <SPACE> :call ToggleComment()<CR>
 
 :nnoremap <silent> <leader><leader> :set list!<CR>
-
-:vnoremap <silent> <SPACE> :call ToggleComment()<CR>
 
 "_____________PLUG
 execute pathogen#infect()
